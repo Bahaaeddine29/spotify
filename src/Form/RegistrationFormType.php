@@ -24,9 +24,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => 
                     new Email ([
                         'message' => 'Adresse email non valide',
-                    ]), 
-
-                
+                  ]),
             ])
             ->add('username', null, [
                 'constraints' =>
