@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Artist index{% endblock %}
 
 {% block body %}
-    <h1>Artist index</h1>
+    <h1 > Artistes </h1>
 
     <table class="table">
         <thead>
@@ -34,4 +34,42 @@
     </table>
 
     <a href="{{ path('app_artist_new') }}">Create new</a>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Artistes{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4 mt-3 ">Artistes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td>{{ artist.id }}</td>
+                <td>{{ artist.firstName }}</td>
+                <td>{{ artist.lastName }}</td>
+                <td>
+                    <a href="{{ path('app_artist_show', {'id': artist.id}) }}" class="btn btn-primary btn-sm mr-2">Show</a>
+                    <a href="{{ path('app_artist_edit', {'id': artist.id}) }}" class="btn btn-secondary btn-sm">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_artist_new') }}" class="btn btn-success">Create new</a>
 {% endblock %}
