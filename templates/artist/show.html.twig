@@ -22,6 +22,19 @@
         </tbody>
     </table>
 
+    <table class="table">
+        <tbody>
+        {% set i = 1 %}
+        {% for music in artist.musics %}
+            <tr>
+                <th> Music </th>
+                <td> {{ music }} </td>
+            </tr>
+        {% endfor %}
+        {% set i = i + 1 %}
+        </tbody>
+    </table>
+
     <a href="{{ path('app_artist_index') }}">back to list</a>
 
     <a href="{{ path('app_artist_edit', {'id': artist.id}) }}">edit</a>

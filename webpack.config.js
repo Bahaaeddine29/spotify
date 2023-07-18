@@ -24,6 +24,7 @@ Encore
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('artiste', './assets/styles/artiste.scss')
     .addEntry('music', './assets/styles/music.scss')
+    .addEntry('home', './assets/styles/home.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
