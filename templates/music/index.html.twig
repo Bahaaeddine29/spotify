@@ -2,6 +2,11 @@
 
 {% block title %}Music index{% endblock %}
 
+{% block stylesheets %}
+                {{parent()}}
+                {{ encore_entry_link_tags('music') }}    
+{% endblock %}
+
 {% block body %}
     <h1 class="mb-4 mt-3 "> Titres </h1>
 
@@ -33,5 +38,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_music_new') }}">Create new</a>
+    <a href="{{ path('app_music_new') }}" class="btn btn-success">Create new</a>
 {% endblock %}
