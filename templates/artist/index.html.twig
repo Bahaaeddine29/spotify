@@ -22,7 +22,9 @@
                 <td>{{ artist.lastName }}</td>
                 <td>
                     <a href="{{ path('app_artist_show', {'id': artist.id}) }}" class="btn btn-primary btn-sm mr-2">Show</a>
+                    {% if is_granted ('ROLE_ADMIN') %}
                     <a href="{{ path('app_artist_edit', {'id': artist.id}) }}" class="btn btn-secondary btn-sm">Edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -32,6 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted ('ROLE_ADMIN') %}
     <a href="{{ path('app_artist_new') }}" class="btn btn-success">Create new</a>
+    {% endif %}
 {% endblock %}
