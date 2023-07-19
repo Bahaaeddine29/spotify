@@ -25,6 +25,7 @@
                 <td>{{ music.id }}</td>
                 <td>{{ music.name }}</td>
                 <td>{{ music.releaseDate ? music.releaseDate|date('Y-m-d H:i:s') : '' }}</td>
+            
                 <td>
                     <a href="{{ path('app_music_show', {'id': music.id}) }}" class="btn btn-primary btn-sm mr-2" > show</a>
                     <a href="{{ path('app_music_edit', {'id': music.id}) }}" class="btn btn-secondary btn-sm" > edit</a>

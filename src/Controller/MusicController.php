@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Music;
 use App\Form\MusicType;
 use App\Repository\MusicRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +21,7 @@ class MusicController extends AbstractController
             'music' => $musicRepository->findAll(),
         ]);
     }
-
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/new', name: 'app_music_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MusicRepository $musicRepository): Response
     {
@@ -48,6 +49,7 @@ class MusicController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}/edit', name: 'app_music_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Music $music, MusicRepository $musicRepository): Response
     {
@@ -66,6 +68,7 @@ class MusicController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_music_delete', methods: ['POST'])]
     public function delete(Request $request, Music $music, MusicRepository $musicRepository): Response
     {
