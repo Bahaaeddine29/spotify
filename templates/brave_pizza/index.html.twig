@@ -2,7 +2,7 @@
 
 {% block title %}Hello BravePizzaController!{% endblock %}
 
-{% block stylesheets %}
+    {% block stylesheets %}
                 {{parent()}}
                 {{ encore_entry_link_tags('home') }}    
     {% endblock %}
@@ -19,13 +19,6 @@
     {% else %}
         <h1> HEEEY </h1>
     {% endif %}
-
-
-    {# This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/HB/Desktop/projet_symfony/secondProject/src/Controller/BravePizzaController.php'|file_link(0) }}">src/Controller/BravePizzaController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/HB/Desktop/projet_symfony/secondProject/templates/brave_pizza/index.html.twig'|file_link(0) }}">templates/brave_pizza/index.html.twig</a></code></li>
-    </ul> #}
 
     <h2> Bienvenue sur Spotify </h2>
 

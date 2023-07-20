@@ -4,7 +4,7 @@
 {% block title %}Artist{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container" style="margin-bottom: 5rem;">
         <h1>Artist</h1>
 
         <table class="table table-bordered">
@@ -24,12 +24,13 @@
                 <tr>
                     <th>Cover</th>
                     <td>
-                        {% if artist.imageFileName is not empty %}
-                            <img src="{{ asset('uploads/images/' ~ artist.imageFileName) }}" alt="">
-                        {% else %}
+                        {% if artist.imageFileName == null %}
                             <img src="{{ asset('uploads/images/default_image.jpg') }}" alt="Default Image">
+                        {% else %}
+                            <img src="{{ asset('uploads/images/' ~ artist.imageFileName) }}" alt="">
                         {% endif %}
                     </td>
+
                 </tr>
             </tbody>
         </table>
@@ -47,7 +48,7 @@
 
         <a href="{{ path('app_artist_index') }}" class="btn btn-secondary">Back to List</a>
 
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted ('ROLE_ADMIN') %}
             <a href="{{ path('app_artist_edit', {'id': artist.id}) }}" class="btn btn-primary">Edit</a>
         {% endif %}
 

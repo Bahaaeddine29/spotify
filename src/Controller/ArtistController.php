@@ -55,12 +55,17 @@ class ArtistController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_artist_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Artist $artist, ArtistRepository $artistRepository): Response
+    public function edit(Request $request, Artist $artist, ArtistRepository $artistRepository, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(ArtistType::class, $artist);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $posterFile = $form->get('poster')->getData();
+            if ($posterFile) {
+                $brochureFileName = $fileUploader->upload($posterFile);
+                $artist->setImageFileName($brochureFileName);
+        }
             $artistRepository->save($artist, true);
 
             return $this->redirectToRoute('app_artist_index', [], Response::HTTP_SEE_OTHER);
