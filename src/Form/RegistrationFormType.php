@@ -30,7 +30,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' =>
                 new Length([
                     'min' => 4,
-                    'minMessage' => 'Username must be at least 6 characters',
+                    'minMessage' => 'Username must be at least 4 characters',
                     // max length allowed by Symfony for security reasons
                     'max' => 25,
                 ]), 
